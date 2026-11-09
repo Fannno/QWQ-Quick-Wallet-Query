@@ -1,0 +1,97 @@
+﻿@model List<QWQ.Web.ViewModels.Transaction.TransactionListItemViewModel>
+
+@{
+    ViewData["Title"] = "收支紀錄";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert" id="successMessage">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert" id="errorMessage">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>收支紀錄</h2>
+        <a asp-controller="Transaction" asp-action="Create" class="btn btn-primary">新增交易</a>
+    </div>
+
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-info">
+            目前沒有收支紀錄。
+        </div>
+    }
+    else
+    {
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>交易日期</th>
+                    <th>交易名稱</th>
+                    <th>交易類別</th>
+                    <th>所屬資產</th>
+                    <th>交易類型</th>
+                    <th>交易金額</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var transaction in Model)
+                {
+                    <tr>
+                        <td>@transaction.TransactionDate.ToString("yyyy/MM/dd")</td>
+                        <td>@transaction.Title</td>
+                        <td>@transaction.CategoryName</td>
+                        <td>@transaction.WalletName</td>
+                        <td>
+                            @if (transaction.TransactionType == "Income")
+                            {
+                                <span class="text-success">收入</span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">支出</span>
+                            }
+                        </td>
+                        <td>
+                            @if (transaction.TransactionType == "Income")
+                            {
+                                <span class="text-success">+@transaction.Amount.ToString("N2")</span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">-@transaction.Amount.ToString("N2")</span>
+                            }
+                        </td>
+                        <td>
+                            <a asp-controller="Transaction" asp-action="Edit" asp-route-id="@transaction.TransactionId" class="btn btn-sm btn-outline-primary">編輯</a>
+                            <form asp-controller="Transaction" asp-action="Delete" asp-route-id="@transaction.TransactionId" method="post" class="d-inline" onsubmit="return confirm('確定要刪除這筆交易紀錄嗎？');">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger">刪除</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+@section Scripts {
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('.alert-dismissible').forEach(message => {
+                bootstrap.Alert.getOrCreateInstance(message).close();
+            });
+        }, 3000);
+    </script>
+}
