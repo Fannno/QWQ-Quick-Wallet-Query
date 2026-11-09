@@ -167,5 +167,32 @@ namespace QWQ.Web.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// 停用指定資產
+        /// </summary>
+        /// <param name="walletId">資產 ID</param>
+        /// <param name="userId">使用者 ID</param>
+        /// <returns>是否成功停用</returns>
+        public bool DeactivateWallet(int walletId, int userId)
+        {
+            string sql = @"UPDATE Wallets
+                   SET IsActive = 0
+                   WHERE WalletId = @WalletId
+                     AND UserId = @UserId
+                     AND IsActive = 1";
+
+            using (SqlConnection conn = new SqlConnection(this.GetDBConnectionString()))
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@WalletId", walletId);
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+        }
     }
 }

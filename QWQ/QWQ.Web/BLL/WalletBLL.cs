@@ -102,5 +102,26 @@ namespace QWQ.Web.BLL
             walletDAL.UpdateWallet(wallet);
             return "";
         }
+
+        /// <summary>
+        /// 停用指定資產
+        /// </summary>
+        /// <param name="walletId">資產 ID</param>
+        /// <param name="userId">使用者 ID</param>
+        /// <returns>停用結果訊息，成功則回傳空字串</returns>
+        public string DeactivateWallet(int walletId, int userId)
+        {
+            if (walletId <= 0 || userId <= 0)
+            {
+                return "資產資料不正確";
+            }
+
+            bool result = walletDAL.DeactivateWallet(walletId, userId);
+            if (!result)
+            {
+                return "找不到資產或資產已停用";
+            }
+            return "";
+        }
     }
 }

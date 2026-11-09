@@ -114,5 +114,33 @@ namespace QWQ.Web.Controllers
             }
             return RedirectToAction("Overview");
         }
+
+        /// <summary>
+        /// 停用指定資產
+        /// </summary>
+        /// <param name="id">資產 ID</param>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Deactivate(int id)
+        {
+            string? userIdValue = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            if (!int.TryParse(userIdValue, out int userId))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            string result = walletBLL.DeactivateWallet(id, userId);
+
+            if (!string.IsNullOrEmpty(result))
+            {
+                TempData["ErrorMessage"] = result;
+            }
+            else
+            {
+                TempData["SuccessMessage"] = "資產已停用";
+            }
+            return RedirectToAction("Overview");
+        }
     }
 }

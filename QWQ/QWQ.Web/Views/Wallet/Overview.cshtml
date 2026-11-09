@@ -4,6 +4,24 @@
     ViewData["Title"] = "我的錢包";
 }
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show"
+         role="alert"
+         id="successMessage">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show"
+         role="alert"
+         id="errorMessage">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>我的錢包</h2>
@@ -13,7 +31,7 @@
     @if (Model.Count == 0)
     {
         <div class="alert alert-info">
-            目前尚未建立任何資產。
+            目前沒有啟用中的資產。
         </div>
     }
     else
@@ -51,6 +69,14 @@
                         <td>@wallet.CreatedAt.ToString("yyyy/MM/dd")</td>
                         <td>
                             <a asp-controller="Wallet" asp-action="Edit" asp-route-id="@wallet.WalletId" class="btn btn-sm btn-outline-primary">編輯</a>
+                            <form asp-controller="Wallet" asp-action="Deactivate" asp-route-id="@wallet.WalletId" method="post" class="d-inline" onsubmit="return confirm('確定要停用這項資產嗎？');">
+
+                                @Html.AntiForgeryToken()
+
+                                <button type="submit" class="btn btn-sm btn-outline-danger">
+                                    停用
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 }
@@ -58,3 +84,13 @@
         </table>
     }
 </div>
+
+@section Scripts {
+    <script>
+        setTimeout(() => {
+            document.querySelectorAll('.alert-dismissible').forEach(message => {
+                bootstrap.Alert.getOrCreateInstance(message).close();
+            });
+        }, 3000);
+    </script>
+}

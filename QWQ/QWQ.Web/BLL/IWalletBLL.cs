@@ -35,5 +35,13 @@ namespace QWQ.Web.BLL
         /// <param name="userId">使用者 ID</param>
         /// <returns>更新結果訊息，成功則回傳空字串</returns>
         string UpdateWallet(WalletEditorViewModel walletVM, int userId);
+
+        /// <summary>
+        /// 停用指定資產
+        /// </summary>
+        /// <param name="walletId">資產 ID</param>
+        /// <param name="userId">使用者 ID</param>
+        /// <returns>停用結果訊息，成功則回傳空字串</returns>
+        string DeactivateWallet(int walletId, int userId);
     }
 }

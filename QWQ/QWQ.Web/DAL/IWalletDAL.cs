@@ -30,5 +30,13 @@ namespace QWQ.Web.DAL
         /// </summary>
         /// <param name="wallet">資產資料</param>
         void UpdateWallet(Wallet wallet);
+
+        /// <summary>
+        /// 停用指定資產
+        /// </summary>
+        /// <param name="walletId">資產 ID</param>
+        /// <param name="userId">使用者 ID</param>
+        /// <returns>是否成功停用</returns>
+        bool DeactivateWallet(int walletId, int userId);
     }
 }
