@@ -7,10 +7,10 @@ CREATE TABLE Transactions
     TransactionId INT IDENTITY(1,1) PRIMARY KEY,
     UserId INT NOT NULL,
     WalletId INT NOT NULL,
+    CategoryId INT NOT NULL,
     TransactionType NVARCHAR(10) NOT NULL,
     Title NVARCHAR(100) NOT NULL,
     Amount DECIMAL(18,2) NOT NULL,
-    CategoryName NVARCHAR(30) NOT NULL,
     TransactionDate DATE NOT NULL,
     Note NVARCHAR(500) NULL,
     IsDeleted BIT NOT NULL DEFAULT 0,
@@ -24,6 +24,10 @@ CREATE TABLE Transactions
     CONSTRAINT FK_Transactions_Wallets
         FOREIGN KEY (WalletId)
         REFERENCES Wallets(WalletId),
+
+    CONSTRAINT FK_Transactions_TransactionCategories
+        FOREIGN KEY (CategoryId)
+        REFERENCES TransactionCategories(CategoryId),
 
     CONSTRAINT CK_Transactions_Type
         CHECK (TransactionType IN ('Income', 'Expense')),

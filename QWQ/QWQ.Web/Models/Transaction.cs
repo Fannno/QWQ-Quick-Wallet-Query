@@ -24,6 +24,12 @@ namespace QWQ.Web.Models
         public int WalletId { get; set; }
 
         /// <summary>
+        /// 交易類別 ID
+        /// </summary>
+        [DisplayName("類別 ID")]
+        public int CategoryId { get; set; }
+
+        /// <summary>
         /// 交易類型（Income / Expense）
         /// </summary>
         [Required]
@@ -45,14 +51,6 @@ namespace QWQ.Web.Models
         [Range(typeof(decimal), "0.01", "9999999999999999")]
         [DisplayName("交易金額")]
         public decimal Amount { get; set; }
-
-        /// <summary>
-        /// 交易類別
-        /// </summary>
-        [Required]
-        [MaxLength(30)]
-        [DisplayName("交易類別")]
-        public string CategoryName { get; set; } = "";
 
         /// <summary>
         /// 交易日期
