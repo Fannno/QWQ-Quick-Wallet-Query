@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace CoinKeep.Web.Models
+namespace QWQ.Web.Models
 {
     public class User
     {

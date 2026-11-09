@@ -1,4 +1,4 @@
-namespace CoinKeep.Web.Models
+namespace QWQ.Web.Models
 {
     public class ErrorViewModel
     {

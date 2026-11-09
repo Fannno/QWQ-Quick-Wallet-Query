@@ -1,9 +1,9 @@
-using CoinKeep.Web.Models;
+using QWQ.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace CoinKeep.Web.Controllers
+namespace QWQ.Web.Controllers
 {
     [Authorize]
     public class HomeController : Controller

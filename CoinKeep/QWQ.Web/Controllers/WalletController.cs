@@ -1,11 +1,11 @@
-﻿using CoinKeep.Web.BLL;
-using CoinKeep.Web.Models;
-using CoinKeep.Web.ViewModels.Wallet;
+﻿using QWQ.Web.BLL;
+using QWQ.Web.Models;
+using QWQ.Web.ViewModels.Wallet;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace CoinKeep.Web.Controllers
+namespace QWQ.Web.Controllers
 {
     [Authorize]
     public class WalletController : Controller

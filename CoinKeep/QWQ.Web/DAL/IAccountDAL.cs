@@ -1,6 +1,6 @@
-﻿using CoinKeep.Web.Models;
+﻿using QWQ.Web.Models;
 
-namespace CoinKeep.Web.DAL
+namespace QWQ.Web.DAL
 {
     /// <summary>
     /// 使用者帳號資料存取介面

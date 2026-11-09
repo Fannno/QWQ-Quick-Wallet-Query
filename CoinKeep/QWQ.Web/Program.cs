@@ -1,5 +1,5 @@
-using CoinKeep.Web.BLL;
-using CoinKeep.Web.DAL;
+using QWQ.Web.BLL;
+using QWQ.Web.DAL;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);

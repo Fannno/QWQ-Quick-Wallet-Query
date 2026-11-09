@@ -1,12 +1,12 @@
-﻿using CoinKeep.Web.BLL;
-using CoinKeep.Web.Models;
-using CoinKeep.Web.ViewModels.Account;
+﻿using QWQ.Web.BLL;
+using QWQ.Web.Models;
+using QWQ.Web.ViewModels.Account;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 
-namespace CoinKeep.Web.Controllers
+namespace QWQ.Web.Controllers
 {
     public class AccountController : Controller
     {

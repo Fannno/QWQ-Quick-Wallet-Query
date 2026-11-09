@@ -1,8 +1,8 @@
-﻿using CoinKeep.Web.DAL;
-using CoinKeep.Web.Models;
-using CoinKeep.Web.ViewModels.Wallet;
+﻿using QWQ.Web.DAL;
+using QWQ.Web.Models;
+using QWQ.Web.ViewModels.Wallet;
 
-namespace CoinKeep.Web.BLL
+namespace QWQ.Web.BLL
 {
     public class WalletBLL : IWalletBLL
     {

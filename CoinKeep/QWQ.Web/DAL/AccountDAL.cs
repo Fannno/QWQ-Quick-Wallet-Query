@@ -1,8 +1,8 @@
-﻿using CoinKeep.Web.Models;
+﻿using QWQ.Web.Models;
 using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace CoinKeep.Web.DAL
+namespace QWQ.Web.DAL
 {
     public class AccountDAL : IAccountDAL
     {

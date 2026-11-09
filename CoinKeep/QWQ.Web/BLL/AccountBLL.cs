@@ -1,9 +1,9 @@
-﻿using CoinKeep.Web.DAL;
-using CoinKeep.Web.Models;
-using CoinKeep.Web.ViewModels.Account;
+﻿using QWQ.Web.DAL;
+using QWQ.Web.Models;
+using QWQ.Web.ViewModels.Account;
 using Microsoft.AspNetCore.Identity;
 
-namespace CoinKeep.Web.BLL
+namespace QWQ.Web.BLL
 {
     public class AccountBLL : IAccountBLL
     {

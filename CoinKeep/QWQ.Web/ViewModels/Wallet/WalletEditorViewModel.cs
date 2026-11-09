@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CoinKeep.Web.ViewModels.Wallet
+namespace QWQ.Web.ViewModels.Wallet
 {
     public class WalletEditorViewModel
     {

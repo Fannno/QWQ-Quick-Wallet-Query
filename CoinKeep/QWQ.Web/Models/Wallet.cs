@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace CoinKeep.Web.Models
+namespace QWQ.Web.Models
 {
     /// <summary>
     /// 使用者資產資料

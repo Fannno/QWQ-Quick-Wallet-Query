@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CoinKeep.Web.ViewModels.Account
+namespace QWQ.Web.ViewModels.Account
 {
     public class RegisterViewModel
     {

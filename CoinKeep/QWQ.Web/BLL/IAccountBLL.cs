@@ -1,7 +1,7 @@
-﻿using CoinKeep.Web.ViewModels.Account;
-﻿using CoinKeep.Web.Models;
+﻿using QWQ.Web.ViewModels.Account;
+﻿using QWQ.Web.Models;
 
-namespace CoinKeep.Web.BLL
+namespace QWQ.Web.BLL
 {
     /// <summary>
     /// 使用者帳號商業邏輯介面
