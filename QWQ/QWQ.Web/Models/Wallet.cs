@@ -3,9 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QWQ.Web.Models
 {
-    /// <summary>
-    /// 使用者資產資料
-    /// </summary>
     public class Wallet
     {
         /// <summary>
