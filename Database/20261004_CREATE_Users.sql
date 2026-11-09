@@ -1,7 +1,7 @@
-﻿CREATE DATABASE CoinKeep;
+﻿CREATE DATABASE QWQ;
 GO
 
-USE CoinKeep;
+USE QWQ;
 GO
 
 /* 使用者資料表 */
